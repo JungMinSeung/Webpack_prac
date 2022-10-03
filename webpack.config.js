@@ -10,7 +10,7 @@ module.exports = {
   mode: "development",
   // entry
   entry: {
-    main: "./src/app.js",
+    main: "./app.js",
   },
   // output
   output: {
@@ -36,6 +36,11 @@ module.exports = {
           name: "[name].[ext]?[hash]",
           limit: 20000, // 20kb미만(nyancat.jpg)은 자바스크립트 문자열(base64)로 변환하고, 그 이상(bg.png)은 file-loader가 동작하게함.
         },
+      },
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
       },
     ],
   },
